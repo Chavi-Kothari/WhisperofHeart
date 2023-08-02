@@ -1,0 +1,13 @@
+<%- include('header'); -%>
+<div class="ToCompose">
+  <a class="addOrEdit" href="/compose"><i class="fa-solid fa-plus"></i>Add / Edit<i class="fa-solid fa-pencil"></i></a>
+</div>
+<% posts.forEach(function(element){%>
+<div class="posts">
+  <a href="/posts/<%=element.title%>"><h2 class="HomePostTitle"><%=element.title%></h2></a>
+  <h6 class="HomePostAuthor">by <%=element.author%></h6>
+  <p class="HomePostContent"><%=element.text.substring(0,40)%><a href="/posts/<%=element.title%>">......</a></p>
+</div>
+<hr>
+<%})%>
+<%- include('footer'); -%>

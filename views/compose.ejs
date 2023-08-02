@@ -1,0 +1,37 @@
+<%- include('header'); -%>
+<h1 class="composeTitle">Write your own!</h1>
+<form action="/compose" method="post">
+  <div class="form-group">
+    <label for="postTitle">Title</label>
+    <input type="text" id="postTitle" class="postTitle" title="must be unique"aria-describedby="postTitle" name="postTitle" placeholder="Your Post Title" required oninput="check()">
+  </div>
+  <div class="form-group">
+    <label for="postAuthor">Author</label>
+    <input type="text" id="postAuthor" class="postAuthor" aria-describedby="postAuthor" name="postAuthor" placeholder="Your Name" value="Anonymous"  oninput="check()" required>
+  </div>
+  <div class="form-group">
+    <label for="Content">Post</label>
+    <textarea class="Content" id ="Content" name="Content" rows="3" placeholder="Your Post" oninput="check()" required></textarea>
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input type="password" id="password" class="password" aria-describedby="password" name="password" placeholder="Enter Password" oninput="check()" required >
+    <i class="fa-solid fa-eye showIcon"></i>
+  </div>
+  <button type="submit" class="btn" onsubmit="checkFields()">Submit</button>
+</form>
+<h4 class="note">Note</h4>
+<ul class="notePoints">
+  <li><i class="icon1 fa-solid fa-circle-xmark"></i>Must add Title to your post</li>
+  <li><i class="icon2 fa-solid fa-circle-xmark"></i>Your Post must contain miniumum 50 characters</li>
+  <li><i class="icon3 fa-solid fa-circle-xmark"></i>Your Password must have minimum 8 characters</li>
+</ul>
+<h1 class="postHeading">All Posts</h1>
+  <% posts.forEach(function(element){%>
+    <div class="posts editpost">
+      <i class="fa-solid fa-pencil"></i><a class="composePostTitle" href="/views/<%=element.title%>"><h3><%=element.title%></h3></a>
+    </div>
+    <hr>
+  <%})%>
+
+<%- include('footer'); -%>

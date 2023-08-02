@@ -1,0 +1,31 @@
+<%- include('header'); -%>
+<div class="postCard">
+  <div class="card">
+    <h1 class="post_Title"><%=title%></h1>
+    <h4 class="post_Author">by <%=author%></h4>
+    <div class="textContent">
+      <p class="post_Content"><%=postContent%></p>
+    </div>
+      <div class="bottom">
+        <p class="date"><%=date%>th<br /><%=month%></p>
+      </div><br>
+        <div class="likesdislikes">
+          <div class="likes">
+            <a class="like" href="/rating/likes/<%=title%>"><i class="fa-solid fa-thumbs-up"></i></a>
+            <p class="likeCount"><%=likecount%></p>
+          </div>
+          <div class="dislikes">
+            <a class="dislike" href="/rating/dislikes/<%=title%>"><i class="fa-solid fa-thumbs-down"></i></a>
+            <p class="dislikeCount"><%=dislikecount%></p>
+          </div>
+      </div>
+    </div>
+  </div>
+  <p class="post_note">Note: Like and Dislike as much as you want!</p>
+  <div class="postLinks">
+    <div class="prevAndNextLinks">
+      <a class="previousPost" href="/posts/<%=previousTitle%>"><i class="fa-solid fa-backward"></i><span class="PreviousPostTitle" value=""><%=previousTitle%></span></a>
+      <a class="NextPost" href="/posts/<%=nextTitle%>"><span class="nextPostTitle"><%=nextTitle%></span><i class="fa-solid fa-forward"></i></a>
+    </div>
+  </div>
+<%- include('footer'); -%>
